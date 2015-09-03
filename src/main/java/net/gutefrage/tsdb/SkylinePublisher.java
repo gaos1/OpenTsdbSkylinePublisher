@@ -1,6 +1,7 @@
 package net.gutefrage.tsdb;
 
 import com.stumbleupon.async.Deferred;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -12,9 +13,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
 import net.opentsdb.core.TSDB;
+import net.opentsdb.meta.Annotation;
 import net.opentsdb.stats.StatsCollector;
 import net.opentsdb.tsd.RTPublisher;
+
 import org.msgpack.MessagePack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -125,4 +129,9 @@ public class SkylinePublisher extends RTPublisher {
         }
 
     }
+
+	@Override
+	public Deferred<Object> publishAnnotation(Annotation arg0) {
+		return new Deferred<Object>();
+	}
 }
